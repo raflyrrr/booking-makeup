@@ -153,6 +153,7 @@ if (empty($_SESSION['username'])) {
                 </div>
             </div>
     </div>
+    <?php include('footer.php') ?>
 
 <?php
 

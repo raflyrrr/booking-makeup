@@ -35,12 +35,13 @@ if (empty($_SESSION['username'])) {
     <header>
         <?php include('navbar.php') ?>
     </header>
+    <div class="heading-home">
+        <div class="form-heading">
+            <div class="container">
+                <h3>Riwayat Booking</h3>
+            </div>
 
-    <div class="container mt-5 mb-1">
-        <h3>Riwayat Booking</h3>
-    </div>
-
-    <!-- <div class="card shadow-sm mt-3 ml-4 mb-1" style="width: 900px; max-width: 90%">
+            <!-- <div class="card shadow-sm mt-3 ml-4 mb-1" style="width: 900px; max-width: 90%">
         <div class="card-body">
             <div class="row">
                 <div class="col ">
@@ -56,44 +57,47 @@ if (empty($_SESSION['username'])) {
         </div>
     </div> -->
 
-    <div class="mb-5">
+            <div class="mb-5">
 
-        <?php
-        $username = $_SESSION["username"];
-        $now = date('Y-m-d');
-        $query = "select * from booking where username = '$username' order by datecreated desc";
-        $query_run = mysqli_query($db_connection, $query);
-        while ($row = mysqli_fetch_assoc($query_run)) {
-            $transnum = $row['transnum'];
-            $tgl = $row['tgl'];
-            $price = $row['price'];
-            $status = $row['status'];
-            $services = $row['services'];
-            $date = strtotime($tgl);
-            $now = date('Y-m-d');
-            $newformat = date('j F Y', $date);
+                <?php
+                $username = $_SESSION["username"];
+                $now = date('Y-m-d');
+                $query = "select * from booking where username = '$username' order by datecreated desc";
+                $query_run = mysqli_query($db_connection, $query);
+                while ($row = mysqli_fetch_assoc($query_run)) {
+                    $transnum = $row['transnum'];
+                    $tgl = $row['tgl'];
+                    $price = $row['price'];
+                    $status = $row['status'];
+                    $services = $row['services'];
+                    $date = strtotime($tgl);
+                    $now = date('Y-m-d');
+                    $newformat = date('j F Y', $date);
 
-        ?>
-            <div class="container card shadow-sm mt-3 mb-1" style="width: 1100px; max-width: 100%">
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col ">
-                            <h4> <?php echo $newformat ?> </h4>
-                            <h6><?php echo $services?></h6>
-                            <p class="text-muted"><?php echo $status ?></p>
-                            <!-- <h6><?php echo $start_time . '.00 - ' . $end_time . '.00' ?></h6> -->
-                        </div>
-                        <div class="col text-right">
-                            <a href="bookingdetail.php?transnum=<?php echo $transnum; ?>" class="card-link"><i class="material-icons">more_horiz</i> Rincian</a>
+                ?>
+                    <div class="container card shadow-sm mt-3 mb-1" style="width: 1100px; max-width: 100%">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col ">
+                                    <h4> <?php echo $newformat ?> </h4>
+                                    <h6><?php echo $services ?></h6>
+                                    <p class="text-muted"><?php echo $status ?></p>
+                                    <!-- <h6><?php echo $start_time . '.00 - ' . $end_time . '.00' ?></h6> -->
+                                </div>
+                                <div class="col text-right">
+                                    <a href="bookingdetail.php?transnum=<?php echo $transnum; ?>" class="card-link"><i class="material-icons">more_horiz</i> Rincian</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
-        <?php
-        }
-        ?>
+                <?php
+                }
+                ?>
 
+            </div>
+        </div>
     </div>
+    <?php include('footer.php') ?>
 </body>
 
 </html>

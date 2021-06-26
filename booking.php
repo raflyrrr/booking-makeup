@@ -36,69 +36,75 @@ if (empty($_SESSION['username'])) {
     <header>
         <?php include('navbar.php') ?>
     </header>
-    <div class="container mt-5 mb-1">
-        <h3>Pemesanan yang sedang berlangsung</h3>
-    </div>
+    <div class="heading-home">
+        <div class="form-heading">
+            <div class="container">
+                <h3>Pemesanan yang sedang berlangsung</h3>
+            </div>
 
-    <div class="mb-5">
+            <div class="mb-5">
 
-        <?php
-        $username = $_SESSION["username"];
-        $now = date('Y-m-d');
-        $query = "select * from booking where username = '$username' order by datecreated desc";
-        $query_run = mysqli_query($db_connection, $query);
-        while ($row = mysqli_fetch_assoc($query_run)) {
-            $transnum = $row['transnum'];
-            $tgl = $row['tgl'];
-            $price = $row['price'];
-            $status = $row['status'];
-            $datecreated = $row['datecreated'];
-            $services = $row['services'];
+                <?php
+                $username = $_SESSION["username"];
+                $now = date('Y-m-d');
+                $query = "select * from booking where username = '$username' order by datecreated desc";
+                $query_run = mysqli_query($db_connection, $query);
+                while ($row = mysqli_fetch_assoc($query_run)) {
+                    $transnum = $row['transnum'];
+                    $tgl = $row['tgl'];
+                    $price = $row['price'];
+                    $status = $row['status'];
+                    $datecreated = $row['datecreated'];
+                    $services = $row['services'];
 
-            $created = strtotime($datecreated);
-            $createdformat = date('d M, h.i a', $created);
+                    $created = strtotime($datecreated);
+                    $createdformat = date('d M, h.i a', $created);
 
-            $date = strtotime($tgl);
-            $now = date('Y-m-d');
-            $newformat = date('j F Y', $date);
+                    $date = strtotime($tgl);
+                    $now = date('Y-m-d');
+                    $newformat = date('j F Y', $date);
 
-        ?>
-            <!-- modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h5 class="modal-title" id="exampleModalLabel">Batalkan pemesanan</h5>
-                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span>
-                            </button>
-                        </div>
-                        <div class="modal-body">
-                            Apakah anda yakin?<br>
-                            Anda tidak dapat membatalkan tindakan ini
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                            <a href="cancelbooking.php?transnum=<?php echo $transnum ?>"><button type="button" class="btn btn-primary">Yes</button></a>
+                ?>
+                    <!-- modal -->
+                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 class="modal-title" id="exampleModalLabel">Batalkan pemesanan</h5>
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                    Apakah anda yakin?<br>
+                                    Anda tidak dapat membatalkan tindakan ini
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                    <a href="cancelbooking.php?transnum=<?php echo $transnum ?>"><button type="button" class="btn btn-primary">Yes</button></a>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </div>
 
-            <div class="container card shadow-sm mt-4 mb-1" style="width: 1000px; max-width: 100%">
-                <div class="card-body">
-                    <h6 class="card-title float-right"><?php echo $newformat ?></h6>
-                    <h4> <?php echo $services ?> </h4>
-                    <p class="text-muted"><?php echo $status ?></p>
-                    <p>Rp. <?php echo money_format($price) ?> </p>
-                    <a href="bookingdetail.php?transnum=<?php echo $transnum; ?>" class="card-link"><i class="material-icons">more_horiz</i>Lihat Detail Transaksi</a>
-                    <a href="" class="card-link text-danger" data-toggle="modal" data-target="#exampleModal"> Batalkan pemesanan</a>
-                </div>
+                    <div class="container card shadow-sm mt-4 mb-1" style="width: 1100px; max-width: 100%">
+                        <div class="card-body">
+                            <h6 class="card-title float-right"><?php echo $newformat ?></h6>
+                            <h4> <?php echo $services ?> </h4>
+                            <p class="text-muted"><?php echo $status ?></p>
+                            <p>Rp. <?php echo money_format($price) ?> </p>
+                            <a href="bookingdetail.php?transnum=<?php echo $transnum; ?>" class="card-link"><i class="material-icons">more_horiz</i>Lihat Detail Transaksi</a>
+                            <a href="" class="card-link text-danger" data-toggle="modal" data-target="#exampleModal"> Batalkan pemesanan</a>
+                        </div>
+                    </div>
+                <?php
+                }
+                ?>
             </div>
-        <?php
-        }
-        ?>
+        </div>
     </div>
+    <?php include('footer.php') ?>
+
 
 </body>
 
