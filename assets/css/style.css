@@ -1,0 +1,250 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700&display=swap");
+
+body {
+  padding: 0%;
+  margin: 0%;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 300;
+  color: black !important;
+}
+
+@keyframes animate {
+  from {
+    background-position: 0 50%;
+  }
+  to {
+    background-position: 100% 50%;
+  }
+}
+
+.my-nav {
+  width: 100%;
+  z-index: 999;
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+.my-carousel {
+  position: absolute;
+  top: 0;
+}
+
+.form-heading {
+  margin-top: 5%;
+  margin-bottom: 20px;
+}
+.heading {
+  margin-bottom: 25%;
+}
+.heading-home {
+  margin-bottom: 35%;
+}
+
+.nav-item {
+  font-weight: bolder;
+  color: black !important;
+  font-size: 18px;
+}
+
+.form-control:focus {
+  border-color: #ff616f;
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+    0 0 8px #ff616f;
+}
+
+.material-icons {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  vertical-align: bottom;
+  padding-right: 3px;
+}
+
+.card-title {
+  font-size: 12px;
+}
+
+.card-img-top {
+  max-width: 100%;
+}
+
+.dark {
+  color: white;
+}
+
+.landing-text {
+  margin-top: 8%;
+}
+.home {
+  background: url("../img/bgfixx.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: top fixed;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Montserrat", sans-serif;
+  color: rgb(0, 0, 0);
+}
+.form-group .col-form-label {
+  color: white;
+}
+.form-group .form-control-plaintext {
+  color: rgb(0, 0, 0);
+}
+
+.jumbotron {
+  margin-top: 200px;
+}
+
+.norek {
+  font-weight: 600;
+}
+
+.nav-top a {
+  text-decoration: none;
+  margin: 10px;
+  color: #000000;
+}
+.nav-top a:hover {
+  color: #ff616f;
+  transition: all 0.2s ease;
+}
+.bottom-footer {
+  color: #fff;
+  padding: 80px;
+}
+.bottom-footer h2{
+  color: #fff;
+}
+.bottom-footer a {
+  text-decoration: none;
+  color: #fff;
+}
+.bottom-footer a:hover {
+  color: #ff616f;
+  transition: all 0.2s ease;
+}
+.makeup-footer {
+  background-color: #000;
+  margin-top: 80px;
+}
+.bottom-cr {
+  color: #fff;
+}
+.book-button {
+  right: 20%;
+  margin-top: 52%;
+  position: relative;
+  background-color: #fff;
+  width: 20rem;
+  height: 4rem;
+  border-color: #faa7af;
+  color: #ff616f;
+  border-radius: 2px;
+  padding: 14px;
+}
+.book-button:hover {
+  background-color: #ff616f;
+  border-color: #ff616f;
+}
+
+.text-h {
+  color: #000;
+  width: 50%;
+  font-weight: 400;
+}
+.text-h h1 {
+  font-weight: 600;
+}
+.carousel-caption {
+  top: 35%;
+  bottom: auto;
+}
+.booking-text {
+  color: #000;
+  position: absolute;
+  margin-top: 47%;
+  width: 35%;
+  right: 0;
+  margin-right: 13rem;
+  text-align: center;
+}
+
+.user-form {
+  border-style: none;
+  width: 50%;
+}
+
+.pass-form {
+  border-style: none;
+  width: 50%;
+}
+.text-login a {
+  text-decoration: none;
+  color: #000;
+}
+.text-login a:hover {
+  color: #ff616f;
+  transition: all 0.2s ease;
+}
+
+.btn-login {
+  color: rgb(255, 255, 255);
+  background-color: #ff616f;
+  border-style: none;
+}
+.btn-login:hover {
+  background-color: #ff3747;
+}
+.card-gallery{
+  border-style: none;
+  padding: 10px;
+}
+.card-gallery:hover{
+  box-shadow: 1px 1px 6px 2px #868686;
+  transition: all 0.45s ease;
+}
+.card-book{
+  padding: 20px;
+  background-color:#f5f5f5;
+  border-radius: 10px;
+  transition: all 0.2s ease-out;
+}
+.card-book:hover{
+  background-color:#ffffff;
+  transition: all 0.2s ease-out;
+}
+
+@media only screen and (max-width: 900px) {
+  .booking-text {
+    display: none;
+  }
+  .book-button {
+    width: 35%;
+    padding: 6px;
+  }
+}
+@media only screen and (max-width: 1024px) {
+  .booking-text {
+    margin-top: 39%;
+    margin-right: 12rem;
+  }
+}
+@media only screen and (min-width: 1025px) and (max-width: 1430px) {
+  .booking-text {
+    margin-top: 41%;
+    margin-right: 12rem;
+  }
+}
+@media only screen and (min-width: 1440px) {
+  .booking-text {
+    margin-top: 45%;
+    margin-right: 13rem;
+  }
+}
